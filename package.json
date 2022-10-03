@@ -2,7 +2,7 @@
   "homepage": "",
   "name": "foodapp",
   "version": "0.1.0",
-  "proxy": "http://localhost:3000",
+  "proxy": "https://food-appbackend-2022.herokuapp.com",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.4.1",
