@@ -58,10 +58,10 @@ function PlanDetail() {
                 <div className='planDetail'>
                     <div className="loginBox">
                         {
-                            Object.keys(data).map((ele, key) => (
+                            Object.keys(plan).map((ele, key) => (
                                 <div className='entryBox' key={key}>
                                     <div className="entryText">{capitalizeFirstLetter(ele)}</div>
-                                    <div className=" input">{capitalizeFirstLetter(data[ele].toString())}</div>
+                                    <div className=" input">{capitalizeFirstLetter(plan[ele].toString())}</div>
                                 </div>
                             ))
                         }
