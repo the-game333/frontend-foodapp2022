@@ -40,7 +40,7 @@ function AuthProvider({ children }) {
         try {
             setLoading(true);
             // res is valid -> with not 400/500
-            const res = await axios.post("https://food-app-backend101.herokuapp.com/api/v1/auth/login", {
+            const res = await axios.post("https://food-appbackend-2022.herokuapp.com/api/v1/auth/login", {
                 email: email,
                 password: password
             });
