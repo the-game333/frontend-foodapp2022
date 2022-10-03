@@ -1,5 +1,5 @@
 {
-  "homepage": "https://the-game333.github.io/food-app-frontend2022",
+  "homepage": "",
   "name": "foodapp",
   "version": "0.1.0",
   "proxy": "http://localhost:3000",
@@ -30,8 +30,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
