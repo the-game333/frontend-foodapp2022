@@ -20,7 +20,7 @@ function AuthProvider({ children }) {
             setLoading(true);
             console.log("signup will be here");
             let res = await axios.post
-                ("https://food-app-backend101.herokuapp.com/api/v1/auth/signup", {
+                ("https://food-appbackend-2022.herokuapp.com/api/v1/auth/signup", {
                     name: name,
                     password: password,
                     confirmPassword: confirm,

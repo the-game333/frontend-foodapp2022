@@ -10,7 +10,7 @@ function ForgetPassword() {
     const sendEmail = async () => {
         // request -> forgetPassword Route
         try {
-            let res = await axios.patch("https://food-app-backend101.herokuapp.com/api/v1/auth/forgetPassword", { email });
+            let res = await axios.patch("https://food-appbackend-2022.herokuapp.com/api/v1/auth/forgetPassword", { email });
 
             alert("Mail send to your registerd email ID");
             setResetEmail(email);

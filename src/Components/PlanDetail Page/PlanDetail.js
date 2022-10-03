@@ -12,12 +12,12 @@ function PlanDetail() {
     const [rate, setrate] = useState();
     const { user } = useAuth();
     useEffect(async () => {
-        const data = await axios.get(`https://food-app-backend101.herokuapp.com/api/v1/plan/${id}`)
+        const data = await axios.get(`https://food-appbackend-2022.herokuapp.com/api/v1/plan/${id}`)
         console.log(data.data.data);
         delete data.data.data["_id"]
         delete data.data.data["__v"]
         setplan(data.data.data)
-        const reviews = await axios.get("https://food-app-backend101.herokuapp.com/api/getReview/" + id);
+        const reviews = await axios.get("https://food-appbackend-2022.herokuapp.com/api/getReview/" + id);
         setarr(reviews.data.reviews)
         console.log(arr);
     }, [])
@@ -27,18 +27,18 @@ function PlanDetail() {
     }
     const handleClick = async () => {
         console.log(123645);
-        const data = await axios.post("https://food-app-backend101.herokuapp.com/api/reviews", {
+        const data = await axios.post("https://food-appbackend-2022.herokuapp.com/api/reviews", {
             "review": review,
             "rating": rate,
             "user": user.user._id,
             "plan": id
         })
-        const reviews = await axios.get("https://food-app-backend101.herokuapp.com/api/getReview/" + id);
+        const reviews = await axios.get("https://food-appbackend-2022.herokuapp.com/api/getReview/" + id);
         setarr(reviews.data.reviews);
     }
     const handleDelete = async () => {
         try {
-            let data = await axios.delete("https://food-app-backend101.herokuapp.com/", {
+            let data = await axios.delete("https://food-appbackend-2022.herokuapp.com/", {
                 "id": id
             });
             alert(data);

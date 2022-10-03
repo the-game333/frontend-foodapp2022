@@ -16,7 +16,7 @@ function PasswordReset() {
         // send to login page 
         // no done -> email ,otp-> null
         try {
-            let res = await axios.patch("https://food-app-backend101.herokuapp.com/api/v1/auth/resetPassword", {
+            let res = await axios.patch("https://food-appbackend-2022.herokuapp.com/api/v1/auth/resetPassword", {
                 otp: otpPassEmail,
                 email: resetPassEmail,
                 password: password,
