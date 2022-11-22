@@ -8,7 +8,7 @@ function Review() {
 
     useEffect(async () => {
         try {
-            const data = await axios.get("https://food-appbackend-2022.herokuapp.com/api/top3reviews");
+            const data = await axios.get("https://foodappbackend-2022.onrender.com/api/top3reviews");
             setarr(data.data.reviews);
         } catch (err) {
             console.log(err);

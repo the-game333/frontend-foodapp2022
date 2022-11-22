@@ -7,17 +7,18 @@ import AuthProvider, { useAuth } from '../Context/AuthProvider';
 function PlanDetail() {
     const [plan, setplan] = useState({})
     const { id } = useParams();
+    
     const [arr, setarr] = useState();
     const [review, setreview] = useState("");
     const [rate, setrate] = useState();
     const { user } = useAuth();
     useEffect(async () => {
-        const data = await axios.get(`https://food-appbackend-2022.herokuapp.com/api/v1/plan/${id}`)
+        const data = await axios.get(`https://foodappbackend-2022.onrender.com/api/v1/plan/${id}`)
         console.log(data.data.data);
         delete data.data.data["_id"]
         delete data.data.data["__v"]
         setplan(data.data.data)
-        const reviews = await axios.get("https://food-appbackend-2022.herokuapp.com/api/getReview/" + id);
+        const reviews = await axios.get("https://foodappbackend-2022.onrender.com/api/getReview/" + id);
         setarr(reviews.data.reviews)
         console.log(arr);
     }, [])
@@ -27,18 +28,18 @@ function PlanDetail() {
     }
     const handleClick = async () => {
         console.log(123645);
-        const data = await axios.post("https://food-appbackend-2022.herokuapp.com/api/reviews", {
+        const data = await axios.post("https://foodappbackend-2022.onrender.com/api/reviews", {
             "review": review,
             "rating": rate,
             "user": user.user._id,
             "plan": id
         })
-        const reviews = await axios.get("https://food-appbackend-2022.herokuapp.com/api/getReview/" + id);
+        const reviews = await axios.get("https://foodappbackend-2022.onrender.com/api/getReview/" + id);
         setarr(reviews.data.reviews);
     }
     const handleDelete = async () => {
         try {
-            let data = await axios.delete("https://food-appbackend-2022.herokuapp.com/", {
+            let data = await axios.delete("https://foodappbackend-2022.onrender.com/", {
                 "id": id
             });
             alert(data);

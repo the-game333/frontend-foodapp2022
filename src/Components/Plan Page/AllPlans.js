@@ -8,7 +8,7 @@ function AllPlans() {
     const [arr, arrset] = useState([]);
     useEffect(async () => {
         try {
-            const res = await axios.get("https://food-appbackend-2022.herokuapp.com/api/v1/plan");
+            const res = await axios.get("https://foodappbackend-2022.onrender.com/api/v1/plan");
             // console.log(res.data.Allplans);
             arrset(res.data.Allplans);
         } catch (err) {
@@ -37,7 +37,7 @@ function AllPlans() {
                             <div className='pCard2'>
                                 <div className='ppoints'>
                                     <img src={Tick} alt='' className='img' />
-                                    <p className='point'>{ele.duration} meal every month</p>
+                                    <p className='point'>{ele.duration} meals every month</p>
                                 </div>
                                 <div className='ppoints'>
                                     <img src={Tick} alt='' className='img' />

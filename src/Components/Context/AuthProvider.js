@@ -20,7 +20,7 @@ function AuthProvider({ children }) {
             setLoading(true);
             console.log("signup will be here");
             let res = await axios.post
-                ("https://food-appbackend-2022.herokuapp.com/api/v1/auth/signup", {
+                ("https://foodappbackend-2022.onrender.com/api/v1/auth/signup", {
                     name: name,
                     password: password,
                     confirmPassword: confirm,
@@ -40,7 +40,7 @@ function AuthProvider({ children }) {
         try {
             setLoading(true);
             // res is valid -> with not 400/500
-            const res = await axios.post("https://food-appbackend-2022.herokuapp.com/api/v1/auth/login", {
+            const res = await axios.post("https://foodappbackend-2022.onrender.com/api/v1/auth/login", {
                 email: email,
                 password: password
             });
