@@ -36,6 +36,7 @@ function PlanDetail() {
         })
         const reviews = await axios.get("https://foodappbackend-2022.onrender.com/api/getReview/" + id);
         setarr(reviews.data.reviews);
+        console.log("hello");
     }
     const handleDelete = async () => {
         try {
