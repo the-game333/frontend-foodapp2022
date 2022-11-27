@@ -28,11 +28,11 @@ function PlanDetail() {
     }
     const handleClick = async () => {
         console.log(123645);
-        console.log(user.user);
+        console.log(user);
         const data = await axios.post("https://foodappbackend-2022.onrender.com/api/v1/reviews", {
             "review": review,
             "rating": rate,
-            "user": user.user._id,
+            "user": user._id,
             "plan": id
         })
         const reviews = await axios.get("https://foodappbackend-2022.onrender.com/api/v1/getReview/" + id);
