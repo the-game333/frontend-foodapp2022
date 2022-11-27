@@ -35,7 +35,7 @@ function PlanDetail() {
             "rating": rate,
             "user": user._id,
             "plan": id
-        },{headers:{"Content-Type" : "application/json"}})
+        },{headers: { 'content-type': 'application/json' }})
         const reviews = await axios.get("https://foodappbackend-2022.onrender.com/api/v1/review" + id);
         setarr(reviews.data.reviews);
         console.log("hello");
