@@ -18,7 +18,7 @@ function PlanDetail() {
        // delete data.data.data["_id"]
         //delete data.data.data["__v"]
         setplan(data.data.plan);
-        const reviews = await axios.get("https://foodappbackend-2022.onrender.com/api/getReview/" + id);
+        const reviews = await axios.get("https://foodappbackend-2022.onrender.com/api/v1/getReview/" + id);
         setarr(reviews.data.reviews)
         console.log(arr);
     }, [])
@@ -28,13 +28,13 @@ function PlanDetail() {
     }
     const handleClick = async () => {
         console.log(123645);
-        const data = await axios.post("https://foodappbackend-2022.onrender.com/api/reviews", {
+        const data = await axios.post("https://foodappbackend-2022.onrender.com/api/v1/reviews", {
             "review": review,
             "rating": rate,
             "user": user.user._id,
             "plan": id
         })
-        const reviews = await axios.get("https://foodappbackend-2022.onrender.com/api/getReview/" + id);
+        const reviews = await axios.get("https://foodappbackend-2022.onrender.com/api/v1/getReview/" + id);
         setarr(reviews.data.reviews);
         console.log("hello");
     }
