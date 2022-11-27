@@ -30,7 +30,7 @@ function PlanDetail() {
         console.log(123645);
         console.log(user);
         const data = await axios.post("https://foodappbackend-2022.onrender.com/api/v1/review", {
-            "review": review,
+            "description": review,
             "rating": rate,
             "user": user._id,
             "plan": id
