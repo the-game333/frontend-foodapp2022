@@ -75,11 +75,11 @@ function PlanDetail() {
                 <div className="reviewEnrty">
                     <input type="text" value={review} onChange={(e) => setreview(e.target.value)} />
                     <select name="" id="" className="select" onChange={(e) => { setrate(e.target.value) }}>
-                        <option value="5">5 Exellent</option>
-                        <option value="4">4 Very Good</option>
-                        <option value="3">3 Good</option>
-                        <option value="2">2 Poor</option>
-                        <option value="1">1 Very Poor</option>
+                        <option value="5">5 </option>
+                        <option value="4">4 </option>
+                        <option value="3">3 </option>
+                        <option value="2">2 </option>
+                        <option value="1">1 </option>
                     </select>
                     <button className="btn" onClick={handleClick}>
                         Submit
