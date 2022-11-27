@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import '../Styles/planDetail.css';
 import '../Styles/contact.css';
 import AuthProvider, { useAuth } from '../Context/AuthProvider';
+
 function PlanDetail() {
     const [plan, setplan] = useState({})
     const { id } = useParams();
@@ -30,13 +31,13 @@ function PlanDetail() {
         console.log(123645);
         console.log(user._id);
         console.log(id);
-        const data = await axios.post("https://foodappbackend-2022.onrender.com/api/v1/review", {
+        const data = await axios.post("https://foodappbackend-2022.onrender.com/api/v1/review/", {
             "description": review,
             "rating": rate,
             "user": user._id,
             "plan": id
         },{headers: { 'content-type': 'application/json' }})
-        const reviews = await axios.get("https://foodappbackend-2022.onrender.com/api/v1/review" + id);
+        const reviews = await axios.get("https://foodappbackend-2022.onrender.com/api/v1/review/" + id);
         setarr(reviews.data.reviews);
         console.log("hello");
     }
