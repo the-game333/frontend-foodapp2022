@@ -15,8 +15,8 @@ function PlanDetail() {
     useEffect(async () => {
         const data = await axios.get(`https://foodappbackend-2022.onrender.com/api/v1/plan/${id}`)
         console.log(data.data.data);
-        delete data.data.data["_id"]
-        delete data.data.data["__v"]
+       // delete data.data.data["_id"]
+        //delete data.data.data["__v"]
         setplan(data.data.data)
         const reviews = await axios.get("https://foodappbackend-2022.onrender.com/api/getReview/" + id);
         setarr(reviews.data.reviews)
