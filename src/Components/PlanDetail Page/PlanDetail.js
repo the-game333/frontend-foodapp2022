@@ -8,7 +8,7 @@ import AuthProvider, { useAuth } from '../Context/AuthProvider';
 function PlanDetail() {
     const [plan, setplan] = useState({})
     const { id } = useParams();
-    
+
     const [arr, setarr] = useState();
     const [review, setreview] = useState("");
     const [rate, setrate] = useState();
@@ -16,7 +16,7 @@ function PlanDetail() {
     useEffect(async () => {
         const data = await axios.get(`https://foodappbackend-2022.onrender.com/api/v1/plan/${id}`)
         console.log(data.data.plan);
-       // delete data.data.data["_id"]
+        // delete data.data.data["_id"]
         //delete data.data.data["__v"]
         setplan(data.data.plan);
         const reviews = await axios.get("https://foodappbackend-2022.onrender.com/api/v1/getReview/" + id);
@@ -31,15 +31,20 @@ function PlanDetail() {
         console.log(123645);
         console.log(user._id);
         console.log(id);
-        const data = await axios.post("https://foodappbackend-2022.onrender.com/api/v1/review/", {
-            "description": review,
-            "rating": rate,
-            "user": user._id,
-            "plan": id
-        },{headers: { 'content-type': 'application/json' }})
-        const reviews = await axios.get("https://foodappbackend-2022.onrender.com/api/v1/review/" + id);
-        setarr(reviews.data.reviews);
-        console.log("hello");
+        try {
+            const data = await axios.post("https://foodappbackend-2022.onrender.com/api/v1/review/", {
+                "description": review,
+                "rating": rate,
+                "user": user._id,
+                "plan": id
+            }, { headers: { 'content-type': 'application/json' } })
+            const reviews = await axios.get("https://foodappbackend-2022.onrender.com/api/v1/review/" + id);
+            setarr(reviews.data.reviews);
+            console.log("hello");
+        }
+        catch (err) {
+            console.log(err);
+        }
     }
     const handleDelete = async () => {
         try {
