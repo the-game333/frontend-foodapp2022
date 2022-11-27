@@ -71,7 +71,7 @@ function AuthProvider({ children }) {
     }
     function logout() {
         // localStorage.removeItem("user")
-        // userSet(null);
+        userSet(null);
         console.log("logout will come here");
     }
 
