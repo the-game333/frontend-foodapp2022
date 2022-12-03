@@ -10,8 +10,8 @@ function Plans() {
     useEffect(async () => {
         try {
             const data = await axios.get("https://foodappbackend-2022.onrender.com/api/v1/sortByRating");
-            arrset(data.data.data);
-            console.log(data.data);
+            arrset(data.plans);
+            console.log(data.plans);
         } catch (err) {
             console.log(err);
         }
