@@ -32,12 +32,12 @@ function PlanDetail() {
         console.log(user._id);
         console.log(id);
         try {
-            // const data = await axios.post("https://foodappbackend-2022.onrender.com/api/v1/review/", {
-            //     "description": review,
-            //     "rating": rate,
-            //     "user": user._id,
-            //     "plan": id
-            // }, { headers: { 'Content-Type': 'application/json' } })
+            const data = await axios.post("https://foodappbackend-2022.onrender.com/api/v1/review/", {
+                "description": review,
+                "rating": rate,
+                "user": user._id,
+                "plan": id
+            }, { headers: { 'Content-Type': 'application/json' } })
             const reviews = await axios.get("https://foodappbackend-2022.onrender.com/api/v1/review/" + id);
             setarr(reviews.data.reviews);
             console.log("hello");
