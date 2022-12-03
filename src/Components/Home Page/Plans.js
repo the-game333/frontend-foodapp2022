@@ -11,7 +11,7 @@ function Plans() {
         try {
             const data = await axios.get("https://foodappbackend-2022.onrender.com/api/v1/plan/sortByRating");
             arrset(data.plans);
-            console.log(data.plans);
+            console.log(data);
         } catch (err) {
             console.log(err);
         }
