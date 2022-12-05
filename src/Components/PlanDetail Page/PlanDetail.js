@@ -14,12 +14,12 @@ function PlanDetail() {
     const [rate, setrate] = useState();
     const { user } = useAuth();
     useEffect(async () => {
-        const data = await axios.get(`https://foodappbackend-2022.onrender.com/api/v1/plan/${id}`)
+        const data = await axios.get(`https://food-app-backend2022.onrender.com/api/v1/plan/${id}`)
         console.log(data.data.plan);
         // delete data.data.data["_id"]
         //delete data.data.data["__v"]
         setplan(data.data.plan);
-        const reviews = await axios.get("https://foodappbackend-2022.onrender.com/api/v1/getReview/" + id);
+        const reviews = await axios.get("https://food-app-backend2022.onrender.com/api/v1/getReview/" + id);
         setarr(reviews.data.reviews)
         console.log(arr);
     }, [])
@@ -32,13 +32,13 @@ function PlanDetail() {
         console.log(user._id);
         console.log(id);
         try {
-            const data = await axios.post("https://foodappbackend-2022.onrender.com/api/v1/review/", {
+            const data = await axios.post("https://food-app-backend2022.onrender.com/api/v1/review/", {
                 description : review,
                 rating : rate,
                 user : user._id,
                 plan: id
             }, { headers: { 'Content-Type': 'application/json' } })
-            const reviews = await axios.get("https://foodappbackend-2022.onrender.com/api/v1/review/" + id);
+            const reviews = await axios.get("https://food-app-backend2022.onrender.com/api/v1/review/" + id);
             setarr(reviews.data.reviews);
             console.log("hello");
         }
@@ -48,7 +48,7 @@ function PlanDetail() {
     }
     const handleDelete = async () => {
         try {
-            let data = await axios.delete("https://foodappbackend-2022.onrender.com/", {
+            let data = await axios.delete("https://food-app-backend2022.onrender.com/", {
                 "id": id
             });
             alert(data);

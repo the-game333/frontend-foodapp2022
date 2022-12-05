@@ -5,7 +5,7 @@ module.exports = function (app) {
     app.use("/api",
         createProxyMiddleware({
             // server ke home page ka link
-            target: 'https://foodappbackend-2022.onrender.com',
+            target: 'https://food-app-backend2022.onrender.com',
             changeOrigin: true,
         })
     );

@@ -9,7 +9,7 @@ function Plans() {
 
     useEffect(async () => {
         try {
-            const data = await axios.get("https://foodappbackend-2022.onrender.com/api/v1/plan/sortByRating");
+            const data = await axios.get("https://food-app-backend2022.onrender.com/api/v1/plan/sortByRating");
             arrset(data.data.plans);
             console.log(data);
         } catch (err) {
