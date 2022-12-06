@@ -293,12 +293,26 @@
         height: 50px;
         width: 50px;
     }
-    .iCard{
-        height: 270px;
-        width: 424px;
-        left: 90px;
+    .iCard {
+        height: 344px;
+        width: 374px;
+        left: 13px;
     }
     .hh1{
         font-size: 50px;
     }
+}
+@media only screen and (max-width: 390px) {
+   
+    .iCard {
+        height: auto;
+        width: auto;
+        left: auto;
+    }
+    .hh1{
+        font-size: 30px;
+    }
+
+
+    
 }

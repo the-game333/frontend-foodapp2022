@@ -21,7 +21,7 @@ function Home() {
                             </div>
                             <div className="header2">
                                 <h1 className="hh1">FOR</h1>
-                                <h1 className=" animateh1">EVERYONE</h1>
+                                <h1 className="hh1 animateh1">EVERYONE</h1>
                             </div>
                         </div>
                         
