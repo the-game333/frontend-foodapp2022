@@ -5,7 +5,17 @@ import '../Styles/planDetail.css';
 import '../Styles/contact.css';
 import AuthProvider, { useAuth } from '../Context/AuthProvider';
 
+import {
+    PayPalScriptProvider,
+    PayPalButtons,
+    usePayPalScriptReducer,
+} from '@paypal/react-paypal-js';
+
 function PlanDetail() {
+    const amount = 100;
+    const currency = "USD";
+    const style = { layout: "vertical" };
+
     const [plan, setplan] = useState({})
     const { id } = useParams();
 
@@ -33,9 +43,9 @@ function PlanDetail() {
         console.log(id);
         try {
             const data = await axios.post("https://food-app-backend2022.onrender.com/api/v1/review/", {
-                description : review,
-                rating : rate,
-                user : user._id,
+                description: review,
+                rating: rate,
+                user: user._id,
                 plan: id
             }, { headers: { 'Content-Type': 'application/json' } })
             const reviews = await axios.get("https://food-app-backend2022.onrender.com/api/v1/review/" + id);
@@ -57,6 +67,56 @@ function PlanDetail() {
             alert(err);
         }
     }
+
+    const ButtonWrapper = ({ currency, showSpinner }) => {
+        // usePayPalScriptReducer can be use only inside children of PayPalScriptProviders
+        // This is the main reason to wrap the PayPalButtons in a new component
+        const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
+
+        useEffect(() => {
+            dispatch({
+                type: "resetOptions",
+                value: {
+                    ...options,
+                    currency: currency,
+                },
+            });
+        }, [currency, showSpinner]);
+
+        return (
+            <>
+                {showSpinner && isPending && <div className="spinner" />}
+                <PayPalButtons
+                    style={style}
+                    disabled={false}
+                    forceReRender={[amount, currency, style]}
+                    fundingSource={undefined}
+                    createOrder={(data, actions) => {
+                        return actions.order
+                            .create({
+                                purchase_units: [
+                                    {
+                                        amount: {
+                                            currency_code: currency,
+                                            value: amount,
+                                        },
+                                    },
+                                ],
+                            })
+                            .then((orderId) => {
+                                // Your code here after create the order
+                                return orderId;
+                            });
+                    }}
+                    onApprove={function (data, actions) {
+                        return actions.order.capture().then(function () {
+                            console.log("payment done");
+                        });
+                    }}
+                />
+            </>
+        );
+    };
 
     return (
         <div className="pDetailBox">
@@ -91,7 +151,21 @@ function PlanDetail() {
                     <button className="btn" onClick={handleClick}>
                         Submit
                     </button>
+                    
                 </div>
+                <h1 style={{color: "darkblue",fontFamily: "cursive"}}>Book Now 🥧</h1>
+                <br></br>
+                    <PayPalScriptProvider
+                        options={{
+                            "client-id":
+                                "test",
+                            components: "buttons",
+                            currency: "USD",
+                            "disable-funding": "credit,card,p24",
+                        }}
+                    >
+                        <ButtonWrapper currency={currency} showSpinner={false} />
+                    </PayPalScriptProvider>
                 {
                     arr && arr?.map((ele, key) => (
                         <div className="reviewsCard" key={key}>
