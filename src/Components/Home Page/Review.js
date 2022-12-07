@@ -10,6 +10,7 @@ function Review() {
         try {
             const data = await axios.get("https://food-app-backend2022.onrender.com/api/v1/review");
             setarr(data.data.reviews);
+            console.log(data.data.reviews);
         } catch (err) {
             console.log(err);
         }
@@ -30,11 +31,11 @@ function Review() {
                                     <img alt='' src={ele.user.profileImage} className='img' />
                                 </div>
                                 <div className='rheader'>
-                                    <h3 className="rh3">Shreya Srivastava</h3>
+                                    <h3 className="rh3">Abhay Pawar</h3>
                                 </div>
                                 <div className='rsummary'>
                                     <p className='para'>
-                                        {ele.review}
+                                        {ele.description}
                                     </p>
                                 </div>
                                 <div><h4>Plan Name : {ele.plan.name}</h4></div>

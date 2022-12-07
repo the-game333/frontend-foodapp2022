@@ -20,7 +20,7 @@ function Plans() {
     return (
         <div className='plansCard'>
             <div className='h1Box'>
-                <h1 className='h1'>START EATING HEALTHY TODAY</h1>
+                <h1 className='h1'>TOP 3 BEST RATED PLANS</h1>
                 <div className="line"></div>
             </div>
             <div className='planDetails'>
@@ -49,7 +49,7 @@ function Plans() {
                                 <p className='point'>{ele.ratingsAverage} rated meal.</p>
                             </div>
                         </div>
-                        <button className='btn'>I'm Hungry</button>
+                        <button className='btn'>Best Rated</button>
                     </div>
                 )}
             </div>
