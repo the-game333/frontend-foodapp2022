@@ -140,7 +140,7 @@ function PlanDetail() {
             </div>
             <div className='reviewBox'>
                 <div className="reviewEnrty">
-                    <input type="text" placeholder="write a review.." value={review} onChange={(e) => setreview(e.target.value)} />
+                    <input type="text" style={{ fontSize: 16}} placeholder="Write a review..." value={review} onChange={(e) => setreview(e.target.value)} />
                     <select name="" id="" className="select" onChange={(e) => { setrate(e.target.value) }}>
                         <option value="5">5 </option>
                         <option value="4">4 </option>
